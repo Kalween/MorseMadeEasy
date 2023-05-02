@@ -1,6 +1,20 @@
 #import colorama for coloring the logo.
 from colorama import Fore, Style, init
 
+#True function for loop
+its_on = True
+
+#dictionary for translation
+morse_code_dict = {
+    'A': '.-',   'B': '-...', 'C': '-.-.', 'D': '-..',  'E': '.',    'F': '..-.', 'G': '--.',  'H': '....',
+    'I': '..',   'J': '.---', 'K': '-.-',  'L': '.-..', 'M': '--',   'N': '-.',  'O': '---',  'P': '.--.',
+    'Q': '--.-', 'R': '.-.',  'S': '...',  'T': '-',    'U': '..-',  'V': '...-', 'W': '.--',  'X': '-..-',
+    'Y': '-.--', 'Z': '--..',
+    '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
+}
+
+#logo function
 def print_logo():
     init(autoreset=True)
 
@@ -12,24 +26,17 @@ def print_logo():
 
     print(Style.RESET_ALL)
 
-its_on = True
-morse_code_dict = {
-    'A': '.-',   'B': '-...', 'C': '-.-.', 'D': '-..',  'E': '.',    'F': '..-.', 'G': '--.',  'H': '....',
-    'I': '..',   'J': '.---', 'K': '-.-',  'L': '.-..', 'M': '--',   'N': '-.',  'O': '---',  'P': '.--.',
-    'Q': '--.-', 'R': '.-.',  'S': '...',  'T': '-',    'U': '..-',  'V': '...-', 'W': '.--',  'X': '-..-',
-    'Y': '-.--', 'Z': '--..',
-    '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
-    '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
-}
 
 
 
+#generates input to list and then translates the string to morse code
 def generator(string_input: str) -> str:
     characters = [char.upper() for char in list(string_input)]
     morse_string = [morse_code_dict.get(char,"/") for char in characters]
     return " ".join(morse_string)
 
 
+#main function
 def main_loop():
     print_logo()
     print("Welcome to the string to morse translator.")
